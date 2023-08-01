@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello World | Huazaiki&#39;s blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hello World | Huazaiki&#39;s blog">
+  <title>CentOS下安装python3 | Huazaiki&#39;s blog</title>
+  <meta name="keywords" content=" linux ">
+  <meta name="description" content="CentOS下安装python3 | Huazaiki&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介邸企华 河北工程大学软件21级学生 是一个喜欢研究技术并积极给自己画大饼的 Lucky_guy  最近在老爹门下积极学习做饭，好难… 联系方式 QQ : 1120505436">
 <meta property="og:type" content="website">
@@ -303,24 +303,39 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-CentOS下安装python3" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">CentOS下安装python3</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="linux">linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">linux</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-07-30 17:24:50'>2023-07-30 00:41</time>
+            发布时间 : <time class="date" title='最后更新: 2023-08-01 21:21:40'>2023-08-01 20:03</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:75</span>
+        <span>字数:437</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -350,7 +365,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E9%A6%96%E5%85%88%EF%BC%8C%E4%BD%A0%E8%A6%81%E7%9F%A5%E9%81%93%E7%B3%BB%E7%BB%9F%E7%8E%B0%E5%9C%A8%E7%9A%84python%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%9C%A8%E5%93%AA%E5%84%BF%EF%BC%9A"><span class="toc-text">1）首先，你要知道系统现在的python的位置在哪儿：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9B%A0%E4%B8%BA%E6%88%91%E4%BB%AC%E8%A6%81%E5%AE%89%E8%A3%85python3%EF%BC%8C%E6%89%80%E4%BB%A5%E8%A6%81%E5%85%88%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E5%8C%85%EF%BC%8C%E7%94%A8%E4%BA%8E%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91python3%EF%BC%9A"><span class="toc-text">2.因为我们要安装python3，所以要先安装相关包，用于下载编译python3：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8wget%E4%B8%8B%E8%BD%BDpython3%E7%9A%84%E6%BA%90%E7%A0%81%E5%8C%85%EF%BC%88%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%BD%91%E5%8F%8B%E6%8F%90%E4%BE%9B%E4%BA%86%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%EF%BC%8C%E6%9B%BF%E6%8D%A2%E4%BA%86%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDpython3%EF%BC%8C%E6%8F%90%E9%AB%98%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%EF%BC%89"><span class="toc-text">3. 用wget下载python3的源码包（评论区网友提供了淘宝镜像，替换了官网下载python3，提高下载速度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E8%AF%91python3%E6%BA%90%E7%A0%81%E5%8C%85"><span class="toc-text">4. 编译python3源码包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-text">5.添加软链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%9B%B4%E6%94%B9yum%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%85%B6%E8%A6%81%E7%94%A8%E5%88%B0python2%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%90%A6%E5%88%99%E4%BC%9A%E5%AF%BC%E8%87%B4yum%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8"><span class="toc-text">6. 更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -366,19 +381,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+        <h3 id="1）首先，你要知道系统现在的python的位置在哪儿："><a href="#1）首先，你要知道系统现在的python的位置在哪儿：" class="headerlink" title="1）首先，你要知道系统现在的python的位置在哪儿："></a>1）首先，你要知道系统现在的python的位置在哪儿：</h3><p>​<img src="/assets/image-20230801201006-06zz71l.png">​</p>
+<ul>
+<li>可以知道我们的python在 &#x2F;usr&#x2F;bin目录中</li>
+</ul>
+<p>​<img src="/assets/image-20230801201207-cv81ukl.png">​</p>
+<ul>
+<li>可以看到，python指向的是python2，python2指向的是python2.7，因此我们可以装个python3，然后将python指向python3，然后python2指向python2.7，那么两个版本的python就能共存了。</li>
+</ul>
+<h3 id="2-因为我们要安装python3，所以要先安装相关包，用于下载编译python3："><a href="#2-因为我们要安装python3，所以要先安装相关包，用于下载编译python3：" class="headerlink" title="2.因为我们要安装python3，所以要先安装相关包，用于下载编译python3："></a>2.因为我们要安装python3，所以要先安装相关包，用于下载编译python3：</h3><pre><code class="bash">yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make 
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>运行了以上命令以后，就安装了编译python3所用到的相关依赖</p>
+<h3 id="3-用wget下载python3的源码包（评论区网友提供了淘宝镜像，替换了官网下载python3，提高下载速度）"><a href="#3-用wget下载python3的源码包（评论区网友提供了淘宝镜像，替换了官网下载python3，提高下载速度）" class="headerlink" title="3. 用wget下载python3的源码包（评论区网友提供了淘宝镜像，替换了官网下载python3，提高下载速度）"></a>3. 用wget下载python3的源码包（评论区网友提供了淘宝镜像，替换了官网下载python3，提高下载速度）</h3><pre><code class="bash">sudo wget http://npm.taobao.org/mirrors/python/3.7.5/Python-3.7.5.tar.xz
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<h3 id="4-编译python3源码包"><a href="#4-编译python3源码包" class="headerlink" title="4. 编译python3源码包"></a>4. 编译python3源码包</h3><pre><code class="bash">#解压
+xz -d Python-3.7.5.tar.xz
+tar -xf Python-3.7.5.tar
+ 
+#进入解压后的目录，依次执行下面命令进行手动编译
+cd Python-3.7.5
+./configure prefix=/usr/local/python3
+make &amp;&amp; make install
+ 
+# tips: 我没出现这个情况
+# 如果出现can&#39;t decompress data; zlib not available这个错误，则需要安装相关库
+# 安装依赖zlib、zlib-devel
+yum install zlib zlib
+yum install zlib zlib-devel
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<h3 id="5-添加软链接"><a href="#5-添加软链接" class="headerlink" title="5.添加软链接"></a>5.添加软链接</h3><pre><code class="bash">#将原来的链接备份
+mv /usr/bin/python /usr/bin/python.bak
+ 
+#添加python3的软链接
+ln -s /usr/local/python3/bin/python3.7 /usr/bin/python
+ 
+#测试是否安装成功了
+python -V
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="6-更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用"><a href="#6-更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用" class="headerlink" title="6. 更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用"></a>6. 更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用</h3><pre><code class="bash">vi /usr/bin/yum
+把#! /usr/bin/python修改为#! /usr/bin/python2
+ 
+vi /usr/libexec/urlgrabber-ext-down
+把#! /usr/bin/python 修改为#! /usr/bin/python2
+</code></pre>
+<p>到此为止，我们的Python3就已经安装好了！</p>
+<p>‍</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1120505436@qq.com </span>
