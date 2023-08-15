@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CentOS下shell美化 | Huazaiki&#39;s blog</title>
-  <meta name="keywords" content=" linux ">
-  <meta name="description" content="CentOS下shell美化 | Huazaiki&#39;s blog">
+  <title>JWT工作流程 | Huazaiki&#39;s blog</title>
+  <meta name="keywords" content=" 后端 , 安全框架 , JWT ">
+  <meta name="description" content="JWT工作流程 | Huazaiki&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介邸企华 河北工程大学软件21级学生 是一个喜欢研究技术并积极给自己画大饼的 Lucky_guy  最近在老爹门下积极学习做饭，好难… 联系方式 QQ : 1120505436">
 <meta property="og:type" content="website">
@@ -380,9 +380,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-CentOS下shell美化" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JWT工作流程" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">CentOS下shell美化</h1>
+        <h1 class="article-title">JWT工作流程</h1>
     
     <div class="article-meta">
         
@@ -392,7 +392,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="linux">linux</a>
+            <a  data-rel="Java">Java</a>
             
         </span>
         
@@ -400,19 +400,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">linux</a>
+            <a class="color3">后端</a>
+            
+            <a class="color5">安全框架</a>
+            
+            <a class="color4">JWT</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-07-31 17:10:34'>2023-07-31 16:48</time>
+            发布时间 : <time class="date" title='最后更新: 2023-08-15 16:07:23'>2023-08-15 15:59</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:571</span>
+        <span>字数:947</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -442,7 +446,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="toc-text">1 ) 测试网络连通性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85zsh"><span class="toc-text">2 ) 安装zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85git"><span class="toc-text">3 ) 安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85oh-my-zsh"><span class="toc-text">4 ) 安装oh-my-zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-oh-my-zsh-%E9%85%8D%E7%BD%AE"><span class="toc-text">5 ) oh my zsh 配置</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -458,49 +462,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-测试网络连通性"><a href="#1-测试网络连通性" class="headerlink" title="1 ) 测试网络连通性"></a>1 ) 测试网络连通性</h2><p>使用命令ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 进行测试，如果有网络则可以解析出地址，接受数据包，如果不可以则显示请求失败</p>
-<p>​<img src="/assets/image-20230731162848-8hxvuzj.png">​</p>
-<p>失败效果：</p>
-<p>​<img src="/assets/image-20230731162911-ttne55d.png"></p>
+        <p>​<img src="/assets/image-20230814125112-vl9feim.png" alt="JWT工作流程">​</p>
+<ol>
+<li><p><strong>我们发送了一个对正在运行的后端系统的 HTTP 请求</strong></p>
+<p> 值得一提的是，Spring 中执行的第一个应用程序是过滤器。所以无论何时何地创建一个过滤器，只需注意并记住它将是我们的应用程序中执行的第一件事</p>
+</li>
+<li><p><strong>所以在这种情况下，首先要执行的是我们的 JWT 身份验证过滤器</strong></p>
+<p> 这只是一次请求过滤器并具有验证和检查我们拥有的令牌或 JWT 令牌的所有内容的作用</p>
+</li>
+<li><p><strong>现在让我们开始这个过程（</strong>​<strong>​ JWT 身份验证过滤****​ ）</strong></p>
+<p> 首先要做的就是发生这种情况时，我们将进行内部检查，以检查我们是否有 JWT 令牌。因此，如果令牌丢失，客户端将发送403响应返回给我们，原因就是缺少 JWT。</p>
+<p> 如果我们拥有 JWT 令牌，我们将启动过程或验证过程。所以这个验证过程将以这种方式开始。过滤器就在内部执行</p>
+</li>
+<li><p>首先会<strong>使用用户名（电子邮件）尝试从数据库调取用户详细信息</strong></p>
+<p> 我们将基于用户电子邮件设置为我们将提取的声明或令牌主题此 JWT 身份验证过滤器将检查 JWT 令牌，提取用户名或电子邮件，或者我们将其称为<code>Subject</code>​。当我们谈论 JWT 令牌时，它将使用该电子邮件来从我们的数据库中获取用户详细信息（UserDetails）。然后一旦获取了用户，我们从数据库中得到了响应，并且响应可以使得无论哪种方式都可以是现有用户或非现有用户。一旦我们收到 JWT 身份验证的响应，过滤器将进行一些检查，即用户是否不存在，否则后端服务器也会向用户发送 403。如果一切都很好，我们从数据库中获取用户</p>
+</li>
+<li><p><strong>然后我们将开始验证过程（ Validate JWT ）</strong></p>
+<p> 这个验证过程，因为此 JWT 令牌是为用户特定生成的，因此我们要根据用户验证此令牌（也就是 JWT令牌适合用户相绑定的，JWT令牌被持有）</p>
+<p> 这里我们有这个验证 JWT 流程或机制，将尝试调用 JWT 服务。这个 JWT 服务将需要作为参数的用户本身（即 UserDetails ）以及令牌或字符串令牌或 JWT 令牌，这个可以随意命名</p>
+</li>
+<li><p>之后执行这个验证过程，<strong>这里有两种情况</strong></p>
+<p> 设想第一个情况：令牌无效。例如，令牌已过期或令牌不适用于该特定用户。那么我们要做的就是发回 403给我们的客户。</p>
+<p> 第二个情况：令牌有效。我们会更新<code>SecurityContextHolder</code>​并设置此连接用户。因为当我们从数据库获取用户详细信息时，我们将能够设置<code>SecurityContextHolder</code>​</p>
+<p> 所以我们会告诉服务器或者过滤器链的其余部分表明该用户现已通过身份验证我们将更新身份验证管理器。所以每当我们检查该用户是否通过该请求的身份验证时，答案</p>
+<p> 是肯定的。一旦<code>SecurityContextHolder</code>​更新后，会自动发送请求，它将被发送到<code>DispatcherServlet</code>​。并从<code>DispatcherServlet</code>​，它将直接发送到 <code>Controller</code>​</p>
+</li>
+</ol>
+<p>我们将执行我们需要执行的所有操作，例如，调用服务，访问数据库等等，所以。然后我们会发回回复。例如，它可以是 JWT，它可以是 HTTP 200，或者任何进程将在此控制器中执行。所以这就是如何JWT 身份验证机制有效。</p>
 <p>‍</p>
-<h2 id="2-安装zsh"><a href="#2-安装zsh" class="headerlink" title="2 ) 安装zsh"></a>2 ) 安装zsh</h2><p>我们先查看一下我们当前的shell   使用命令 echo $SHELL 可以查看，一般都会显示 &#x2F;bin&#x2F;bash   这是大多数系统的默认shell ，我们接下来使用命令查看我们安装了什么shell  cat &#x2F;etc&#x2F;shells</p>
-<p>​<img src="/assets/image-20230731163036-9vemu5a.png"> ​&lt;&lt;– 无 zsh​</p>
-<p>我们需要安装zsh。执行 sudo yum install zsh -y 安装zsh。</p>
-<p>安装完成后 ，执行：chsh -s &#x2F;bin&#x2F;zsh 替换默认shell，完成后 执行命令 reboot 重启，即可更改默认shell。</p>
-<p>‍</p>
-<h2 id="3-安装git"><a href="#3-安装git" class="headerlink" title="3 ) 安装git"></a>3 ) 安装git</h2><p>我们这个美化软件需要git的支持，所以我们需要安装git，执行命令 sudo yum install git -y 可以安装git</p>
-<h2 id="4-安装oh-my-zsh"><a href="#4-安装oh-my-zsh" class="headerlink" title="4 ) 安装oh-my-zsh"></a>4 ) 安装oh-my-zsh</h2><p>准备工作做好后，我们安装oh-my-zsh，oh-my-zsh是一个开源的框架，里边继承了大量的皮肤，并且简化了zsh的复杂的使用，并且添加了大量的功能，可以让我们很好的使用zsh，执行下面的命令可以安装oh-my-zsh：</p>
-<pre><code class="shell">sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
-</code></pre>
-<p>出现如下界面说明即安装成功：</p>
-<p>​<img src="/assets/image-20230731163337-ovrl8nu.png">​</p>
-<p>国内的小伙伴很可能因为种种网络因素执行上面命令会很难安装上，这里找到一个国内的<a target="_blank" rel="noopener" href="https://gitee.com/pocmon/ohmyzsh">镜像源</a></p>
-<p>使用下面这条命令也可以，实测有效（2023-7-31）：</p>
-<pre><code class="shell">sh -c &quot;$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)&quot;
-</code></pre>
-<p>‍</p>
-<p>​<img src="/assets/image-20230731163940-37dfxn9.png">​</p>
-<p>安装成功！</p>
-<h2 id="5-oh-my-zsh-配置"><a href="#5-oh-my-zsh-配置" class="headerlink" title="5 ) oh my zsh 配置"></a>5 ) oh my zsh 配置</h2><p>安装完毕后，我们就可以使用了，先来简单配置一下，Oh My Zsh 提供了很多主题风格，我们可以根据自己的喜好，设置主题风格</p>
-<pre><code class="shell">vim ~/.zshrc
-
-# 找到 ZSH_THEME
-# robbyrussell 是默认的主题
-ZSH_THEME=&quot;robbyrussell&quot;
-
-# ZSH_THEME=&quot;样式名称&quot; 
-</code></pre>
-<p>我们还可以设置随机主题：</p>
-<pre><code class="shell"># 步骤同上
-ZSH_THEME=&quot;random&quot;
-</code></pre>
-<p>每次打开终端主题是随机的。</p>
-<p>终端输出：</p>
-<pre><code class="shell">[oh-my-zsh] Random theme &#39;/Users/xxxx/.oh-my-zsh/themes/zhann.zsh-theme&#39; loaded...
-</code></pre>
-<p>其中 <strong>zhann.zsh-theme</strong> 是主题的名称， 有喜欢的可以记录保留.</p>
-<p>​<img src="/assets/image-20230731164541-0tbmpit.png">​​</p>
-<p><img src="/assets/image-20230731164603-6uu2a3w.png">​</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1120505436@qq.com </span>
