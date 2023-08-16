@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于&amp;留言板 | Huazaiki&#39;s blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="关于&amp;留言板 | Huazaiki&#39;s blog">
+  <title>SpringBoot3 + Spring Security + JWT的一个简单实现 | Huazaiki&#39;s blog</title>
+  <meta name="keywords" content=" 后端 , 安全框架 , JWT ">
+  <meta name="description" content="SpringBoot3 + Spring Security + JWT的一个简单实现 | Huazaiki&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="​​  我们发送了一个对正在运行的后端系统的 HTTP 请求  值得一提的是，Spring 中执行的第一个应用程序是过滤器。所以无论何时何地创建一个过滤器，只需注意并记住它将是我们的应用程序中执行的第一件事  所以在这种情况下，首先要执行的是我们的 JWT 身份验证过滤器  这只是一次请求过滤器并具有验证和检查我们拥有的令牌或 JWT 令牌的所有内容的作用  现在让我们开始这个过程（ JWT 身份">
 <meta property="og:type" content="article">
@@ -413,24 +413,45 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-SpringBoot3-Spring-Security-JWT的一个简单实现" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于&amp;留言板</h1>
+        <h1 class="article-title">SpringBoot3 + Spring Security + JWT的一个简单实现</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Java">Java</a> > 
+            
+            <a  data-rel="Java&lt;---&gt;Spring">Spring</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">后端</a>
+            
+            <a class="color5">安全框架</a>
+            
+            <a class="color4">JWT</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-07-31 19:16:41'>2023-07-30 01:13</time>
+            发布时间 : <time class="date" title='最后更新: 2023-08-16 16:25:30'>2023-08-16 16:21</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:60</span>
+        <span>字数:1.9k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -460,7 +481,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">个人简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E8%BF%91"><span class="toc-text">最近</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-text">联系方式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="toc-text">实现流程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="toc-text">测试流程：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -476,13 +497,428 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h4><p>邸企华</p>
-<p><a target="_blank" rel="noopener" href="https://www.hebeu.edu.cn/">河北工程大学</a>软件21级学生</p>
-<p>是一个喜欢研究技术并积极给自己画大饼的 Lucky_guy </p>
-<h4 id="最近"><a href="#最近" class="headerlink" title="最近"></a>最近</h4><p>在老爹门下积极学习做饭，好难…</p>
-<h4 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h4><ul>
-<li>QQ : 1120505436</li>
-</ul>
+        <h2 id="实现流程："><a href="#实现流程：" class="headerlink" title="实现流程："></a>实现流程：</h2><ol>
+<li><p>前置内容</p>
+<ol>
+<li><p>数据库配置</p>
+<pre><code class="yaml">spring:
+  datasource:
+    url: jdbc:postgresql://192.168.12.129:5432/jwt_security
+    username: huazaiki
+    password: xiaokeai941
+    driver-class-name: org.postgresql.Driver
+</code></pre>
+</li>
+<li><p>JPA 配置</p>
+<pre><code class="yaml">spring:  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>创建我们要验证的实体：<strong>用户</strong></p>
+<pre><code class="java">@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity    // 使对象将成为被JPA管理的实体，通过 @Table注解中的&#39;name&#39;属性映射到指定的数据库表
+@Table(name = &quot;_user&quot;)    // 表名
+public class User &#123;
+
+    @Id    // 标识主键
+    @GeneratedValue    //主键自增策略，默认为 AUTO
+    private Integer id;
+
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String password;
+</code></pre>
+</li>
+<li><p>然后让用户成为 Spring 的用户，让 User 实现 UserDetails</p>
+<pre><code class="java">@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity    // 使对象将成为被JPA管理的实体，通过 @Table注解中的&#39;name&#39;属性映射到指定的数据库表
+@Table(name = &quot;_user&quot;)    // 表名
+public class User &#123;
+
+    @Id    // 标识主键
+    @GeneratedValue    //主键自增策略，默认为 AUTO
+    private Integer id;
+
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String password;
+
+    @Enumerated(EnumType.STRING)    // 创建一个 &quot;Role&quot; 枚举类来存储角色类型
+    private Role role;
+
+    @Override
+    public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() &#123;    // 获取所有权限
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    &#125;
+
+    @Override
+    public String getUsername() &#123;
+        return email;
+    &#125;
+
+    @Override
+    public boolean isAccountNonExpired() &#123;
+        return true;
+    &#125;
+
+    @Override
+    public boolean isAccountNonLocked() &#123;
+        return true;
+    &#125;
+
+    @Override
+    public boolean isCredentialsNonExpired() &#123;
+        return true;
+    &#125;
+
+    @Override
+    public boolean isEnabled() &#123;
+        return true;
+    &#125;
+</code></pre>
+</li>
+<li><p>然后我们就可以创建 JPA 相关的 Repository 了，创建 <strong>UserRepository</strong>​</p>
+<pre><code class="java">//                                                &lt;数据库操作对象, 主键类型&gt;
+public interface UserRepository extends JpaRepository&lt;User, Integer&gt; &#123;
+
+    /**
+     * @return 使用 Optional类包装返回数据可以防止因为返回数据为空导致的报错
+     */
+    Optional&lt;User&gt; findByEmail(String email);
+&#125;
+</code></pre>
+</li>
+<li><p>然后我们需要去写<strong>​ JWT 身份验证过滤器 ：JwtAuthenticationFilter</strong></p>
+<pre><code class="java">@Component
+@RequiredArgsConstructor
+public class JwtAuthenticationFilter extends OncePerRequestFilter &#123;  
+// 继承”OncePerRequestFilter“表示这是一个每次请求都要使用的过滤器
+
+
+
+    @Override 
+    protected void doFilterInternal(
+        @NonNull HttpServletRequest request,
+        @NonNull HttpServletResponse response,        /* 这三个参数都不应该是null,所以前面打上@NonNull注解 */
+        @NonNull FilterChain filterChain  
+    ) throws ServletException, IOException &#123;
+        /**
+         * JWT令牌存放在请求头RequestHeader里面
+         */
+        final String authHeader = request.getHeader(&quot;Authorization&quot;);
+        final String jwt;
+        final String userEmail;
+        if (authHeader == null || !authHeader.startsWith(&quot;Bearer &quot;)) &#123;    // 如果我们的认证头authHeader信息为空的话
+            filterChain.doFilter(request, response);                      // 我们就需要让过滤器放行过去，让其他过滤器处理 
+            return;
+        &#125;
+        //走到这一步证明当前用户持有 jwtToken 我们就需要截取token
+        jwt = authHeader.substring(7);    //&quot;Bearer &quot;
+        //截取完之后，我们就需要在JwtService中检查我们是否有该用户或者说是否存在于数据库中
+        userEmail = // todo extract the userEmail from JWT token
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>我们这时候需要创建 JWT 的 Service 类，来实现提取用户名等操作</p>
+<pre><code class="java">@Component
+@RequiredArgsConstructor
+public class JwtAuthenticationFilter extends OncePerRequestFilter &#123;
+
+    private final JwtService jwtService;
+    private final UserDetailsService userDetailsService;
+
+    @Override
+    protected void doFilterInternal(
+        @NonNull HttpServletRequest request,
+        @NonNull HttpServletResponse response,
+        @NonNull FilterChain filterChain
+    ) throws ServletException, IOException &#123;
+        final String authHeader = request.getHeader(&quot;Authorization&quot;);
+        final String jwt;
+        final String userEmail;
+        if (authHeader == null || !authHeader.startsWith(&quot;Bearer &quot;)) &#123;
+            filterChain.doFilter(request, response);
+            return;
+        &#125;
+        jwt = authHeader.substring(7);
+        userEmail = jwtService.extractUsername(jwt);
+        // 表示用户 jwt令牌 通过但是尚未链接
+        if (userEmail != null &amp;&amp; SecurityContextHolder.getContext().getAuthentication() == null) &#123;
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+            if (jwtService.isTokenValid(jwt, userDetails)) &#123;
+                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                        userDetails,
+                        null,
+                        userDetails.getAuthorities()
+                );
+                authToken.setDetails(
+                        new WebAuthenticationDetailsSource().buildDetails(request)
+                );
+                SecurityContextHolder.getContext().setAuthentication(authToken);
+            &#125;
+        &#125;
+        filterChain.doFilter(request, response);
+    &#125;
+&#125;
+</code></pre>
+<p> <strong>JwtService：</strong></p>
+<pre><code class="Java">@Service
+public class JwtService &#123;
+    // 加密密钥
+    private static final String SECRET_KEY = &quot;dWvXC3APKNzIddlqgHrMiXMcWZ7JTu2pgNesRNPlaXiF0XuJCOpHAem/iCMtKK2h&quot;;
+
+    /**
+     * 从 JWT token中提取用户名
+     */
+    public String extractUsername(String token) &#123;
+        return extractClaim(token, Claims::getSubject);
+    &#125;
+
+    /**
+     * 根据所需提取 Claims内属性，泛型方法
+     * @param claimsResolver 能够得到目标信息的方法 Claims::getxxx
+     */
+    public &lt;T&gt; T extractClaim(String token, Function&lt;Claims, T&gt; claimsResolver) &#123;
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    &#125;
+
+    /**
+     * 提取所有的 Claims
+     */
+    private Claims extractAllClaims(String token) &#123;
+        return Jwts
+                .parserBuilder()
+                .setSigningKey(getSignInKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    &#125;
+
+    /**
+     * 从密钥中提取数字签名
+     */
+    private Key getSignInKey() &#123;
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        return Keys.hmacShaKeyFor(keyBytes);
+    &#125;
+
+    /**
+     * 验证 JWT token的有效性
+     */
+    public boolean isTokenValid(String token, UserDetails userDetails) &#123;
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername())) &amp;&amp; !isTokenExpired(token);
+    &#125;
+
+    /**
+     * 验证 JWT token是否过期，如果过期时间在当前时间之前证明已经过期
+     */
+    private boolean isTokenExpired(String token) &#123;
+        return extractExpiration(token).before(new Date());
+    &#125;
+
+    /**
+     * 提取过期时间
+     */
+    private Date extractExpiration(String token) &#123;
+        return extractClaim(token, Claims::getExpiration);
+    &#125;
+&#125;
+</code></pre>
+<p> 我们只要知道第一步校验是需要在 JWT 令牌里面提取信息进行比对</p>
+<p> 能取出来 Username 证明当前 JWT 令牌存在。我们这时候开始尝试更新 <code>SecurityContextHolder</code>​​​</p>
+</li>
+<li><p>但是我们还需要一个内部过滤器，来让 Spring 过滤器链知道我们执行的顺序。</p>
+<p> 创建 <strong>SecurityConfiguration</strong></p>
+<pre><code class="Java">@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfiguration &#123;
+
+    private final JwtAuthenticationFilter jwtAuthFilter;
+    private final AuthenticationProvider authenticationProvider;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception &#123;
+        http
+            .csrf(AbstractHttpConfigurer::disable)    //关闭 csrf 功能
+            .authorizeHttpRequests(authorize -&gt; authorize
+                    .requestMatchers(&quot;/api/v1/auth/**&quot;).permitAll()    // 允许此类接口直接访问
+                    .anyRequest().authenticated()    // 标记所有request请求都是需要认证的
+            )
+            .sessionManagement(session -&gt; session  
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)    // session配置策略，无状态会话
+            )
+            .authenticationProvider(authenticationProvider)    // 身份验证提供器
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);// 使用Jwt过滤器在用户名密码身份过滤器之前
+
+        return http.build();
+    &#125;
+&#125;
+</code></pre>
+<p> 这其中涉及到 authenticationProvider，它的作用就是获取用户详细信息，并对密码进行编码</p>
+<pre><code class="java">    @Bean
+    public AuthenticationProvider authenticationProvider() &#123;
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService());
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
+    &#125;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() &#123;
+        return new BCryptPasswordEncoder();
+    &#125;
+</code></pre>
+<p> 在此过程中我们还需要注入 AuthenticationManager 身份验证管理器，管理器可以基于用户身份验证或者仅使用用户名和密码</p>
+</li>
+<li><p>完成后置工作之后接下来就要编写注册和登录的验证接口了</p>
+<p> <strong>AuthenticationController：</strong></p>
+<pre><code class="java">@RestController
+@RequestMapping(&quot;/api/v1/auth&quot;)
+@RequiredArgsConstructor
+public class AuthenticationController &#123;
+
+    private final AuthenticationService service;
+
+    @PostMapping(&quot;/register&quot;)
+    public ResponseEntity&lt;AuthenticationResponse&gt; register(
+            @RequestBody RegisterRequest request
+    ) &#123;
+        return ResponseEntity.ok(service.register(request));
+    &#125;
+
+    @PostMapping(&quot;/authenticate&quot;)
+    public ResponseEntity&lt;AuthenticationResponse&gt; authenticate(
+            @RequestBody AuthenticationRequest request
+    ) &#123;
+        return ResponseEntity.ok(service.authenticate(request));
+    &#125;
+&#125;
+</code></pre>
+<p> <strong>AuthenticationResponse</strong> 实体类：</p>
+<pre><code class="Java">@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthenticationResponse &#123;
+
+    private String token;
+&#125;
+</code></pre>
+<p> <strong>AuthenticationRequest</strong> 类：</p>
+<pre><code class="java">@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthenticationRequest &#123;
+
+    private String email;
+    String password;
+&#125;
+</code></pre>
+<p> <strong>RegisterRequest</strong> 类：</p>
+<pre><code class="java">@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class RegisterRequest &#123;
+
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String password;
+&#125;
+</code></pre>
+<p> 为了测试方便，<strong>AuthenticationResponse</strong> 实体类只携带了 token 字段</p>
+<p> 然后就是编写 AuthenticationService 类，完成相应的业务了</p>
+<pre><code class="Java">@Service
+@RequiredArgsConstructor
+public class AuthenticationService &#123;
+
+    private final UserRepository repository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+
+    public AuthenticationResponse register(RegisterRequest request) &#123;
+        var user = User.builder()
+                .firstname(request.getFirstname())
+                .lastname(request.getLastname())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.USER)
+                .build();
+        repository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    &#125;
+
+    public AuthenticationResponse authenticate(AuthenticationRequest request) &#123;
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
+        var user = repository.findByEmail(request.getEmail())
+                .orElseThrow();
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+<h2 id="测试流程："><a href="#测试流程：" class="headerlink" title="测试流程："></a>测试流程：</h2><p>到此我们的 Jwt 认证服务已经完成了，使用 Postman 可以去测试接口：</p>
+<p>​<img src="/assets/image-20230816153744-m64qqmr.png" alt="JPA建表日志">​</p>
+<p>开启服务后我们其实可以发现 JPA 已经帮我们创建好表了</p>
+<p>首先访问我们的 demo 接口：<a target="_blank" rel="noopener" href="http://localhost:8080/api/v1/demo-controller">http://localhost:8080/api/v1/demo-controller</a></p>
+<p>​<img src="/assets/image-20230816154019-i62mhz2.png" alt="连接测试1">​</p>
+<p>直接返回 403，因为我们在 SecurityConfiguration 中配置了除了 &#x2F;api&#x2F;v1&#x2F;auth&#x2F;下的接口可以无身份访问，其他都需要有身份访问。</p>
+<p>我们转到注册接口：<a target="_blank" rel="noopener" href="http://localhost:8080/api/v1/auth/register%EF%BC%8C%E5%A1%AB%E5%86%99%E4%B8%8A%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE">http://localhost:8080/api/v1/auth/register，填写上表单数据</a></p>
+<p>‍</p>
+<pre><code class="json">&#123;
+    &quot;firstname&quot;: &quot;huazaiki&quot;,
+    &quot;lastname&quot;: &quot;huazaiki&quot;,
+    &quot;email&quot;: &quot;huazaiki@mail.com&quot;,
+    &quot;password&quot;: &quot;1234&quot;
+&#125;
+</code></pre>
+<p>注意，在 Postman 中需要内容改成 Json 内容，这时我踩的一个坑，对这个工具还不太了解</p>
+<p>​<img src="/assets/image-20230816154615-3d8uxly.png">​</p>
+<p>发送 Post 请求就返回了一串 token 字符串：</p>
+<p>​<img src="/assets/image-20230816154650-l3a1cbm.png" alt="连接测试2">​</p>
+<p>我们复制下来里面的内容，将其复制到 demo 接口的 Authorization 选项卡处（注意是 Bearer Token）：</p>
+<p>​<img src="/assets/image-20230816154841-9ezk932.png">​</p>
+<p>再次发送，我们可以看到正确地返回了数据</p>
+<p>​<img src="/assets/image-20230816154933-ibc584v.png" alt="连接测试2">​</p>
+<p>至此我们的 SpringBoot 3 + Spring Security + Jwt 整合就编写 + 测试完毕了，谢谢大家</p>
+<p>‍</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1120505436@qq.com </span>
