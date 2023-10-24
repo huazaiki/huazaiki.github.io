@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>TheFuck--快速纠正控制台命令错误 | Huazaiki&#39;s blog</title>
-  <meta name="keywords" content=" linux , 工具 ">
-  <meta name="description" content="TheFuck--快速纠正控制台命令错误 | Huazaiki&#39;s blog">
+  <title>为我的Linux主机配置终端 -- 用Terminator+ZSH打造好用的终端开发环境 | Huazaiki&#39;s blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="为我的Linux主机配置终端 -- 用Terminator+ZSH打造好用的终端开发环境 | Huazaiki&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介邸企华 河北工程大学软件21级学生 是一个喜欢研究技术并积极给自己画大饼的 Lucky_guy  最近在老爹门下积极学习做饭，好难… 联系方式 QQ : 1120505436">
 <meta property="og:type" content="website">
@@ -417,41 +417,24 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-TheFuck-快速纠正控制台命令错误" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-为我的Linux主机配置终端-用Terminator-ZSH打造好用的终端开发环境" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">TheFuck--快速纠正控制台命令错误</h1>
+        <h1 class="article-title">为我的Linux主机配置终端 -- 用Terminator+ZSH打造好用的终端开发环境</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="linux">linux</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color1">linux</a>
-            
-            <a class="color3">工具</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-08-02 00:04:48'>2023-08-01 20:04</time>
+            发布时间 : <time class="date" title='最后更新: 2023-10-24 19:34:11'>2023-10-24 13:43</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:395</span>
+        <span>字数:2.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -481,7 +464,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85-pip"><span class="toc-text">1. 安装 pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8D%87%E7%BA%A7-pip"><span class="toc-text">2. 升级 pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85-The-Fuck"><span class="toc-text">3. 安装 The Fuck</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E8%BF%99%E7%AF%87%E5%8D%9A%E5%AE%A2"><span class="toc-text">关于为什么写这篇博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E6%93%8D%E4%BD%9C%E4%BD%BF%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="toc-text">本文操作使用的系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E4%BD%A0%E6%8B%BF%E5%88%B0%E6%96%B0%E6%9C%BA%E5%99%A8%E4%B9%8B%E5%90%8E"><span class="toc-text">在你拿到新机器之后</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-text">1. 终端配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85"><span class="toc-text">1.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF"><span class="toc-text">1.2 设置为默认终端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%8E%A8%E8%8D%90%E9%85%8D%E7%BD%AE"><span class="toc-text">1.3 推荐配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Preferences-Profiles-General%E4%B8%AD"><span class="toc-text"># 在Preferences-&gt;Profiles-&gt;General中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Preferences-Profiles-Colors%E4%B8%AD"><span class="toc-text"># 在Preferences-&gt;Profiles-&gt;Colors中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Preferences-Profiles-Background%E4%B8%AD"><span class="toc-text"># 在Preferences-&gt;Profiles-&gt;Background中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SHELL%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%9AZSH"><span class="toc-text">2. SHELL的选择：ZSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AE%BE%E7%BD%AEzsh%E4%B8%BA%E9%BB%98%E8%AE%A4shell"><span class="toc-text">2.2 设置zsh为默认shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AEzsh"><span class="toc-text">3. 配置zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85"><span class="toc-text">3.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%B8%BB%E9%A2%98"><span class="toc-text">3.2 主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%8E%A8%E8%8D%90%E6%8F%92%E4%BB%B6"><span class="toc-text">3.3 推荐插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E9%AB%98%E4%BA%AE%EF%BC%9Azsh-syntax-highlighting"><span class="toc-text"># 命名高亮：zsh-syntax-highlighting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%A5%E5%85%A8%EF%BC%9Azsh-autosuggestions"><span class="toc-text"># 命令补全：zsh-autosuggestions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%93%8D%E4%BD%9C%E5%8A%A0%E9%80%9F%EF%BC%9Agit"><span class="toc-text"># git操作加速：git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%EF%BC%9Aextract"><span class="toc-text"># 文件解压：extract</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -497,36 +480,134 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近刷到个视频，提到了我早就有所耳闻的 <a target="_blank" rel="noopener" href="https://github.com/nvbn/thefuck">The Fuck</a> 项目</p>
-<p>我们在使用命令行的时候会遇到不小心打错字符或者漏写字符的情况，当我们运行这段错误代码时往往会弹出烦人的警告信息。这时候我们只需要输入：fuck 就可以自动提示出可能正确的结果，如果正确的话按 Enter 就可以执行了！</p>
-<p>贴一段官方的动图：</p>
-<p>​<img src="/assets/example-20230801214940-jgi8bmv.gif"></p>
-<p>‍</p>
-<h3 id="1-安装-pip"><a href="#1-安装-pip" class="headerlink" title="1. 安装 pip"></a>1. 安装 pip</h3><pre><code class="bash">#运行这个命令添加epel扩展源
-yum -y install epel-release
-#安装pip
-yum install python-pip
+        <h2 id="关于为什么写这篇博客"><a href="#关于为什么写这篇博客" class="headerlink" title="关于为什么写这篇博客"></a>关于为什么写这篇博客</h2><p>最初想到要写这篇文章是在两个月前配置新系统的时候。当时受到 <a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">6.NULL</a> 课上老师的启发，在环境配置方面作出了重大改进。虽然这一次相对于以前来说，对于命令行的了解更加深入完备，配置环境的时间从一周缩短到一天；但在具体环境配置时，仍然不时感到有些迷惑。因此想在相对有空的时候抽出时间来写这样一篇博客，记录一下一个新系统我是怎样进行相应环境的配置的。这样以后进行环境配置时可以有一个相对系统的参考；而对于其他人来说也可以查阅并获取有用的信息。</p>
+<hr>
+
+<h2 id="本文操作使用的系统"><a href="#本文操作使用的系统" class="headerlink" title="本文操作使用的系统"></a>本文操作使用的系统</h2><p>我使用的是 Ubuntu 22.04 LTS</p>
+<hr>
+
+<h2 id="在你拿到新机器之后"><a href="#在你拿到新机器之后" class="headerlink" title="在你拿到新机器之后"></a>在你拿到新机器之后</h2><p>作为程序员每天都要面对的生产力工具，电脑有一个自己所习惯、高效且美观的生产环境是尤为重要的。此外还有一些工具在使用时需要进行额外的配置才能较好地适应国内的互联网环境。因此，十分有必要对默认的系统进行一番环境配置。</p>
+<h3 id="1-终端配置"><a href="#1-终端配置" class="headerlink" title="1. 终端配置"></a>1. 终端配置</h3><p>这次配置的是 用Terminator + agnoster的主题<br>特点很多，包括但不限于:</p>
+<ul>
+<li>自动记录所有终端会话</li>
+<li>文本和URL的拖放功能</li>
+<li>支持水平滚动</li>
+<li>查找，一种用于在终端内搜索任何特定文本的功能</li>
+<li>支持UTF-8</li>
+<li>智能退出–它知道运行过程（如果有）</li>
+<li>垂直滚动很方便</li>
+<li>使用自由，通用公共许可证</li>
+<li>支持基于选项卡的浏览</li>
+<li>用Python编写的Portal</li>
+<li>平台–支持GNU&#x2F;Linux平台</li>
+<li>…</li>
+</ul>
+<h3 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1 安装"></a>1.1 安装</h3><pre><code class="bash">sudo add-apt-repository ppa:gnome-terminator  #添加下载源
+sudo apt update                               #更新下载源
+sudo apt install terminator                   #安装
 </code></pre>
-<h3 id="2-升级-pip"><a href="#2-升级-pip" class="headerlink" title="2. 升级 pip"></a>2. 升级 pip</h3><p>升级pip的指令很简单：</p>
-<pre><code class="bash">pip install --upgrade pip
+<h3 id="1-2-设置为默认终端"><a href="#1-2-设置为默认终端" class="headerlink" title="1.2 设置为默认终端"></a>1.2 设置为默认终端</h3><p>安装完成后我们设置其为默认终端，通过快捷键Ctrl+Alt+T即可唤起。 网上有不同的配置方法，推荐使用以下方法:</p>
+<pre><code class="bash">gsettings set org.gnome.desktop.default-applications.terminal exec-arg &quot;-x&quot;
+gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/terminator
 </code></pre>
-<p>如果没有成功我们也可以使用下面这个命令，不过在我的环境中是需要使用 python3的，原先的python2会很多错误。所以没有安装 python3的小伙伴可以去看我往期安装 python3的博文</p>
-<pre><code class="bash">python -m pip install --upgrade pip
+<pre><code class="bash">gsettings reset org.gnome.desktop.default-applications.terminal exec
+gsettings reset org.gnome.desktop.default-applications.terminal exec-arg
 </code></pre>
-<p>安装好之后我们就可以使用 pip list 查看 pip包的版本了</p>
-<p>​<img src="/assets/image-20230801220202-m82mf0m.png"></p>
-<h3 id="3-安装-The-Fuck"><a href="#3-安装-The-Fuck" class="headerlink" title="3. 安装 The Fuck"></a>3. 安装 The Fuck</h3><p>安装好新的 pip之后我们再输入：</p>
-<pre><code class="bash">pip install thefuck
+<blockquote>
+<p>修改系统设置的时候，了解如何恢复、给默认配置备份都是极好的习惯。</p>
+</blockquote>
+<h3 id="1-3-推荐配置"><a href="#1-3-推荐配置" class="headerlink" title="1.3 推荐配置"></a>1.3 推荐配置</h3><p>快捷键启动Terminator，右键选择首选项设置打开设置界面进行配置。</p>
+<h3 id="在Preferences-Profiles-General中"><a href="#在Preferences-Profiles-General中" class="headerlink" title="# 在Preferences-&gt;Profiles-&gt;General中"></a># 在Preferences-&gt;Profiles-&gt;General中</h3><p>修改字体为等宽字体，推荐DejaVu Sans Mono（没有则安装即可），也可以按自己的需修改。</p>
+<h3 id="在Preferences-Profiles-Colors中"><a href="#在Preferences-Profiles-Colors中" class="headerlink" title="# 在Preferences-&gt;Profiles-&gt;Colors中"></a># 在Preferences-&gt;Profiles-&gt;Colors中</h3><p>可以选择自己喜欢的背景颜色和终端颜色schemes，原则是对眼睛友好。不同的元素的颜色分明，比如通过ls -al列出文件时，不同类型的文件一目了然。笔者使用的是：</p>
+<ul>
+<li>前景背景色：Solarized Dark</li>
+<li>调色板(Color palette)：Ambience</li>
+</ul>
+<h3 id="在Preferences-Profiles-Background中"><a href="#在Preferences-Profiles-Background中" class="headerlink" title="# 在Preferences-&gt;Profiles-&gt;Background中"></a># 在Preferences-&gt;Profiles-&gt;Background中</h3><p>我喜欢将背景设置为半透明，数值为0.85-0.9最佳。</p>
+<blockquote>
+<p>为什么？在终端输入命令时，如果要参照网页，与其切换窗口，不如透过终端直接看到后面网页上的命令。</p>
+</blockquote>
+<h3 id="2-SHELL的选择：ZSH"><a href="#2-SHELL的选择：ZSH" class="headerlink" title="2. SHELL的选择：ZSH"></a>2. SHELL的选择：ZSH</h3><p>早期的shell是sh，由Steve Bourne编写（名为Bourne shell），目前很多Linux版本的系统默认shell为bash，由Brain Fox编写（名为Bourne Again Shell），它是对sh的增强改进版本。bash更加符合posix标准，因此bash更适合做脚本解释器。</p>
+<p>而从交互式终端的角度来讲，专为交互而设计的zsh更为强大，它包含其他shell(bash&#x2F;ksh&#x2F;csh)的优秀特性；所以笔者在使用终端的时候选择zsh，但是在写脚本的时候，声明的解释器往往是bash。</p>
+<p>zsh被称为终极shell，它非常强大，最为实用的功能有几点：</p>
+<p>色彩高亮 不同的颜色表明当前命令的类型，并且路径有无下划线表示路径是否存在；这可以快速帮助我们发现错误。<br>命令提示&#x2F;补全 提示和补全有不同实现机制，好用之处在于补全，输入命令会根据输入的历史自动补全，并且随着输入不断修正，如果补全是你期望的结果，按下右方向键接受，再回车即可。<br>智能补全 在使用cd切换路径时，按下tab会列出当前目录下的目录和文件，如果是bash，它会提示你手动输入，但是zsh中你可以继续按一下tab进入选择模式，继续使用tab选择，或者使用方向键选择目标目录而不需手动输入。</p>
+<h3 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h3><p>通过下面的命令可以查看系统安装了的shell以及当前的shell: </p>
+<pre><code class="bash">huazaiki@huazaiki-OS:~/Desktop$ cat /etc/shells
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/usr/bin/sh
+/bin/dash
+/usr/bin/dash
 </code></pre>
-<p>这样我们就安装好了 The Fuck 了，然后我们需要在终端配置里加上别名，The Fuck 默认命令是 thefuck</p>
-<p>在你的终端配置<code>.bash_profile</code>​, <code>.bashrc</code>​, <code>.zshrc</code>​等中添加如下片段</p>
-<pre><code class="bash">eval $(thefuck --alias)    #默认别名 fuck
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK) #添加 Fuck作为别名
+<p>如果列出的shell中没有zsh，通过以下命令安装: </p>
+<pre><code class="bash">sudo apt update
+sudo apt install zsh -y
 </code></pre>
-<p>这样就安装好了！</p>
-<p>（其实遇到bug的时候真的挺像说声 Fuck 的）（小声BB）</p>
-<p>‍</p>
+<h3 id="2-2-设置zsh为默认shell"><a href="#2-2-设置zsh为默认shell" class="headerlink" title="2.2 设置zsh为默认shell"></a>2.2 设置zsh为默认shell</h3><p>通过命令设置: </p>
+<pre><code class="bash">chsh -s /bin/zsh
+</code></pre>
+<h3 id="3-配置zsh"><a href="#3-配置zsh" class="headerlink" title="3. 配置zsh"></a>3. 配置zsh</h3><p>配置zsh略微复杂，可以直接使用Oh-My-Zsh进行配置。</p>
+<h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><p>根据Oh-My-Zsh Gitlab仓库WiKi或者<a target="_blank" rel="noopener" href="https://ohmyz.sh/">官网</a>的命令进行安装</p>
+<pre><code class="bash">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre>
+<p>github在国内访问可能会很慢，清华有对应的镜像，可以参考： <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/">ohmyzsh.git | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p>安装完后，我们只需要简单设置自己喜欢的主题和常用的插件即可。</p>
+<p>有的主题必须使用powerline字体，通过以下命令安装：</p>
+<pre><code class="bash">sudo apt install powerline fonts-powerline
+</code></pre>
+<h3 id="3-2-主题"><a href="#3-2-主题" class="headerlink" title="3.2 主题"></a>3.2 主题</h3><p>Oh-My-Zsh默认安装了很多主题，位于目录.oh-my-zsh&#x2F;themes下。 通过zsh配置文件~&#x2F;.zshrc中的主题设置为自己喜欢的主题名字即可:</p>
+<pre><code>ZSH_THEME=&quot;robbyrussell&quot;
+</code></pre>
+<p>我在使用的主题是 ‘agnoster’ 和 ‘agnosterzak’。 agnoster默认安装，agnosterzak需要手动安装:</p>
+<pre><code class="bash">cd ~/.oh-my-zsh/themes
+wget https://raw.githubusercontent.com/zakaziko99/agnosterzak-ohmyzsh-theme/master/agnosterzak.zsh-theme
+</code></pre>
+<p>这两个是带有git prompt的主题, 安装后进入git仓库目录, 我没有git初始化效果如图:<br><img src="/../assets/image1.png"></p>
+<p>我选择它的原因在于可以直观看到当前的分支名称，可以看到仓库的状态：有几个文件没有追踪，添加了几个文件，改动了几个文件。</p>
+<blockquote>
+<p>如果是很大的项目，在进入项目时会比较费时，这时可以禁止oh-my-zsh读取git status：git config –add oh-my-zsh.hide-status 1<br>使用工具的目的是提高效率，如果给我们的效率带来损耗，也要毫不犹豫地禁用。<br>如果设置ZSH_THEME&#x3D;”random”，那么每次打开新的终端窗口时会随机选择一个主题使用，echo $RANDOM_THEME可获取当前主题名称。</p>
+</blockquote>
+<p>如果想从限定的主题列表中随机选择，那么同时设置 “ZSH_THEME_RANDOM_CANDIDATES” 即可，例如: </p>
+<pre><code>ZSH_THEME_RANDOM_CANDIDATES=( &quot;robbyrussell&quot; &quot;agnoster&quot; )。
+</code></pre>
+<h3 id="3-3-推荐插件"><a href="#3-3-推荐插件" class="headerlink" title="3.3 推荐插件"></a>3.3 推荐插件</h3><p>默认安装的插件位于路径.oh-my-zsh&#x2F;plugins&#x2F;。 插件配置通过zsh配置文件~&#x2F;.zshrc中的plugins即可：</p>
+<pre><code>plugins=(
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    git
+    extract
+)
+</code></pre>
+<h3 id="命名高亮：zsh-syntax-highlighting"><a href="#命名高亮：zsh-syntax-highlighting" class="headerlink" title="# 命名高亮：zsh-syntax-highlighting"></a># 命名高亮：zsh-syntax-highlighting</h3><p>zsh语法高亮就是通过这个插件实现的，默认应该是安装的，如果没有使用下面的命令安装:</p>
+<pre><code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting
+</code></pre>
+<h3 id="命令补全：zsh-autosuggestions"><a href="#命令补全：zsh-autosuggestions" class="headerlink" title="# 命令补全：zsh-autosuggestions"></a># 命令补全：zsh-autosuggestions</h3><p>如图所示，输入命令时可提示自动补全（白色部分），然后右方向键即可补全：</p>
+<p>同样应该是默认安装，如果没有使用命令：</p>
+<pre><code>git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+</code></pre>
+<h3 id="git操作加速：git"><a href="#git操作加速：git" class="headerlink" title="# git操作加速：git"></a># git操作加速：git</h3><p>主要是提供了很多alias，很多常用的git命令的简写。通过命令alias | grep git查看。 熟记常用命令的缩写对于提高效率不言而喻。以下是一些常用的git命令:</p>
+<pre><code>g=git
+ga=&#39;git add&#39;
+gaa=&#39;git add --all&#39;
+gb=&#39;git branch&#39;
+gbD=&#39;git branch -D&#39;
+gcb=&#39;git checkout -b&#39;
+gd=&#39;git diff&#39;
+gl=&#39;git pull&#39;
+glog=&#39;git log --oneline --decorate --graph&#39;
+gp=&#39;git push&#39;
+gpf=&#39;git push --force-with-lease&#39;
+grb=&#39;git rebase&#39;
+grba=&#39;git rebase --abort&#39;
+grbc=&#39;git rebase --continue&#39;
+</code></pre>
+<h3 id="文件解压：extract"><a href="#文件解压：extract" class="headerlink" title="# 文件解压：extract"></a># 文件解压：extract</h3><p>刚开始使用Linux系统，想必大家都会有一点苦恼，对于不同类型的压缩格式：.tar、.tar.gz、.tar.bz2、.tar.xz、.rar、.zip，解压的时候到底用啥命令呢？</p>
+<p>有了这个插件就不用纠结了，一律使用x &lt;archived file&gt;。</p>
+<p>以上就是我配置新终端和shell的过程，希望能给大家一些帮助。有问题可以写邮件发送至邮箱 <a href="mailto:&#100;&#x71;&#x69;&#104;&#117;&#97;&#48;&#x33;&#64;&#x31;&#50;&#54;&#46;&#99;&#111;&#109;">&#100;&#x71;&#x69;&#104;&#117;&#97;&#48;&#x33;&#64;&#x31;&#50;&#54;&#46;&#99;&#111;&#109;</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 dqihua03@126.com </span>
